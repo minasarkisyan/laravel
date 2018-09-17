@@ -15,15 +15,14 @@ class IndexController extends Controller
 
   public function main(Request $req)
   {
-      $id = 256;
-      $name = $req->input('name');
-      $surname = $req->Input('surname');;
+      $users = DB::table('tasks')->get();
+
       return view('main',
       [
-          'data'=>$id,
-          'name'=>$name,
-          'familia'=>$surname
-      ]);
+        'users'=>$users
+      ]
+
+    );
   }
 
   public function user()
