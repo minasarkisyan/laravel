@@ -84,6 +84,10 @@ class ProductController extends Controller
     public function edit($id) // - Форма обновления
     {
         echo "Форма обновления";
+        $product = Product::find($id);
+        return view('crud.edit', compact('product', 'id'));
+
+
     }
 
     /**
@@ -95,7 +99,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id) // - Обновление
     {
-       echo "Обновление";
+
+       $product = Product::find($id);
+       $product->title=$request->get('title');
+       $product->description=$request->get('description');
+       $product->image=$request->get('image');
+       $product->price=$request->get('price');
+       $product->save();
+       return redirect()->route('product.index');
     }
 
     /**

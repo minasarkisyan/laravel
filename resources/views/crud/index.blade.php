@@ -30,7 +30,11 @@
       <a href="{{ route('product.show', $product['id'])}}" class="btn btn-info">Посмотреть</a></td>
     </form>
     <td>
-    <td><a href="" class="btn btn-warning">Редактировать</a></td>
+      <form action="{{ route('product.edit', $product['id']) }}" method="post">
+        @method('put')
+        <td><a href="{{ route('product.edit', $product['id']) }}" class="btn btn-warning">Редактировать</a></td>
+      </form>
+
     <td>
       <form action="{{route('product.destroy', $product['id'])}}" method="post">
         @csrf
