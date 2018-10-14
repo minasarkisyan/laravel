@@ -3,19 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Providers\Services\HelloService;
+use Illuminate\Support\Facades\Cache;
 use \DB;
 
 class IndexController extends Controller
 {
 
-  public function index($id)
+  public function index(HelloService $var)
   {
-    return "User:". $id;
+    $data = "Fanto";
+    $int = 32;
+
+    if ($data !== "Fantom") {
+      echo "Data = Fantom";
+    }else {
+      echo "Не равно";
+    };
+
+    
+
+
+
+    dump($var->getMessage());
   }
 
   public function main(Request $req)
   {
-      $users = DB::table('tasks')->get();
+      $users = DB::table('tasks')->where('id', 1)->get();
 
       return view('main',
       [

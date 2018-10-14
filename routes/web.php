@@ -34,6 +34,12 @@ Route::get('user', function()
   dump($name);
 });
 
+Route::get('some/{id}', function($id) {
+    	
+		$var = "Join";
+    	return "Some text :" . $id . $var;
+});
+
 Route::get('names', 'NamesController@index');
 Route::get('names/update', 'NamesController@update');
 Route::post('names/create', 'NamesController@create');
@@ -45,7 +51,7 @@ Route::post('watch', 'UsersController@watch');
 
 Route::get('sendform', 'UsersController@sendForm');
 Route::get('getdata', 'UsersController@getdata');
-Route::post('getdata', 'UsersController@getdata');
+Route::post('setdata', 'UsersController@setdata')->name('setdata');
 
 Auth::routes();
 

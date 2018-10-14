@@ -12,16 +12,16 @@
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Редактирование описания товара</label>
-          <textarea type="text" name="description" class="form-control"  placeholder="Description"></textarea>
+          <textarea type="text" name="description" class="form-control" value="{{ $product->description }}" placeholder="" ></textarea>
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Редактирование пути к файлу изображения</label>
-          <input type="text" name="image" class="form-control" >
+          <input type="text" name="image" class="form-control" value="{{ $product->image }}" >
           <small id="emailHelp" class="form-text text-muted">Полный путь к картинке</small>
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Редактирование цены</label>
-          <input type="text" name="price" class="form-control" >
+          <input type="text" name="price" class="form-control" value="{{ $product->price }}" >
           <small id="emailHelp" class="form-text text-muted">Введите новую цену товара</small>
         </div>
         <button type="submit" class="btn btn-primary">Изменить</button>

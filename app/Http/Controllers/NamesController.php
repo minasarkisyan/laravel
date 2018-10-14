@@ -8,14 +8,18 @@ class NamesController extends Controller
 {
     public function index()
     {
-      $users = Name::find(1);
+      $users = Name::all();
 
-      dump($users->first_name);
+      foreach ($users as $val) {
+        echo $val->id .  '<br>';
+        echo $val->first_name .  '<br>';
+        echo $val->second_name .  '<br>';
+      }
     }
 
     public function show()
     {
-      $users = Name::get();
+      $users = Name::all();      
 
       return view('main',
       [

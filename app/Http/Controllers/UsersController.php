@@ -27,6 +27,16 @@ class UsersController extends Controller
     public function getdata(Request $request)
     {
 
+      
+
+      $users = User::get();
+
+      return view('users',['users'=> $users]);
+
+    }
+
+    public function setdata(Request $request)
+    {
       $name = $request->input('name');
       $email = $request->input('email');
 
@@ -36,10 +46,7 @@ class UsersController extends Controller
           'email'=>$email
         ]);
 
-      $users = User::get();
-
-      return view('users',['users'=> $users]);
-
+      return redirect('users');
     }
 
     public function store(StoreBlogPost $request)
